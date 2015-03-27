@@ -72,16 +72,15 @@
         For more information, please visit http://www.jahia.com
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.jahia.modules</groupId>
         <artifactId>jahia-modules</artifactId>
-        <version>7.0.0.5-SNAPSHOT</version>
+        <version>7.0.0.5</version>
     </parent>
     <artifactId>rss</artifactId>
-    <version>2.0.2-SNAPSHOT</version>
+    <version>2.0.2</version>
     <packaging>bundle</packaging>
     <name>Jahia RSS Feeds</name>
     <description>This is the custom module (Jahia RSS Feeds) for running on a Jahia server.</description>
@@ -89,7 +88,8 @@
         <connection>scm:git:git@github.com:Jahia/rss.git</connection>
         <developerConnection>scm:git:git@github.com:Jahia/rss.git</developerConnection>
         <url>scm:git:git@github.com:Jahia/rss.git</url>
-    </scm>
+      <tag>2_0_2</tag>
+  </scm>
     <repositories>
         <repository>
             <releases>
