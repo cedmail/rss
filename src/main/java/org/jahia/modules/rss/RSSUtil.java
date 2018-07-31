@@ -53,6 +53,7 @@ import com.sun.syndication.io.SyndFeedInput;
 import com.sun.syndication.io.XmlReader;
 import org.slf4j.Logger;
 import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.net.URL;
 
 
@@ -63,15 +64,14 @@ import java.net.URL;
  * Time: 4:07:04 PM
  */
 public class RSSUtil {
-
     private static final transient Logger logger = org.slf4j.LoggerFactory.getLogger(RSSUtil.class);
     
     private SyndFeed feed;
     
     private boolean loaded;
-
     private String url;
-
+    private static int timeoutInMs = 4000; // default value -> to be loaded from Jahia properties? (global timeout config)
+    
     /**
      * Get a SyndFeed from an url
      * @param url
@@ -81,6 +81,8 @@ public class RSSUtil {
         SyndFeed feed = null;
         try {
             final SyndFeedInput input = new SyndFeedInput();
+            HttpURLConnection urlConnection = (HttpURLConnection) new URL(url).openConnection();
+            urlConnection.setConnectTimeout(timeoutInMs);
             final XmlReader reader = new XmlReader(new URL(url));
             feed = input.build(reader);
         } catch (FeedException e) {
@@ -100,6 +102,16 @@ public class RSSUtil {
         return feed;
     }
 
+    /** * Get a SyndFeed from an url 
+    * @param url, custom timeout value (global) 
+    * @return 
+    */
+    public static SyndFeed loadSyndFeed(String url, int timeoutInMs){
+        setTimeoutInMs(timeoutInMs);
+        return loadSyndFeed(url);
+    }
+    
+    
 //    /**
 //     * Reformat codes coming from google news
 //     *
@@ -128,6 +140,22 @@ public class RSSUtil {
         this.url = url;
     }
 
+    /** 
+    * Returns feed maximum timeout (to load).
+    * @return the timeout value in milliseconds
+    */
+    public static int getTimeoutInMs() {
+        return timeoutInMs;
+    }
+    /** 
+    * Sets the feed maximum timeout (to load). 
+    * 
+    * @param timeoutInMs the timeout value in milliseconds 
+    */
+    public static void setTimeoutInMs(int timeoutInMs) {
+        RSSUtil.timeoutInMs = timeoutInMs;
+    }
+    
     /**
      * Returns the parsed feed object. 
      * @return the parsed feed object
