@@ -64,77 +64,6 @@ import java.net.URL;
  * Time: 4:07:04 PM
  */
 public class RSSUtil {
-
-    private static final transient Logger logger = org.slf4j.LoggerFactory.getLogger(RSSUtil.class);
-    
-    private SyndFeed feed;
-    
-    private boolean loaded;
-
-    private String url;
-
-    private static int timeoutInMs = 4000; // default value -> to be loaded from Jahia properties? (global timeout config)
-    
-    /**
-     * Get a SyndFeed from an url
-     * @param url
-     * @return
-     */
-    public static SyndFeed loadSyndFeed(String url){
-        SyndFeed feed = null;
-        try {
-            final SyndFeedInput input = new SyndFeedInput();
-            for loading RSS feeds. * User: ktlili
- * Date: Jan 5, 2010
- * Time: 4:07:04 PM
- */
-public class RSSUtil {
-    private static final transient Logger logger = org.slf4j.LoggerFactory.getLogger(RSSUtil.class);
-    
-    private SyndFeed feed;
-    
-    private boolean loaded;
-    private String url;
-    private static int timeoutInMs = 4000; // default value -> to be loaded from Jahia properties? (global timeout config)
-    
-    /**
-     * Get a SyndFeed from an url
-     * @param url
-     * @return
-     */
-    public static SyndFeed loadSyndFeed(String url){
-        SyndFeed feed = null;
-        try {
-            final SyndFeedInput input = new SyndFeedInput();
-/** for loading RSS feeds. 
- * User: ktlili
- * Date: Jan 5, 2010
- * Time: 4:07:04 PM
- */
-public class RSSUtil {
-    private static final transient Logger logger = org.slf4j.LoggerFactory.getLogger(RSSUtil.class);
-    
-    private SyndFeed feed;
-    
-    private boolean loaded;
-    private String url;
-    private static int timeoutInMs = 4000; // default value -> to be loaded from Jahia properties? (global timeout config)
-    
-    /**
-     * Get a SyndFeed from an url
-     * @param url
-     * @return
-     */
-    public static SyndFeed loadSyndFeed(String url){
-        SyndFeed feed = null;
-        try {
-            final SyndFeedInput input = new SyndFeedInput();
- /** for loading RSS feeds. 
- * User: ktlili
- * Date: Jan 5, 2010
- * Time: 4:07:04 PM
- */
-public class RSSUtil {
     private static final transient Logger logger = org.slf4j.LoggerFactory.getLogger(RSSUtil.class);
     
     private SyndFeed feed;
@@ -214,7 +143,8 @@ public class RSSUtil {
     /** 
     * Returns feed maximum timeout (to load).
     * @return the timeout value in milliseconds
-    */public static int getTimeoutInMs() {
+    */
+    public static int getTimeoutInMs() {
         return timeoutInMs;
     }
     /** 
