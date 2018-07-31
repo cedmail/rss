@@ -106,7 +106,8 @@ public class RSSUtil {
         SyndFeed feed = null;
         try {
             final SyndFeedInput input = new SyndFeedInput();
-for loading RSS feeds. * User: ktlili
+/** for loading RSS feeds. 
+ * User: ktlili
  * Date: Jan 5, 2010
  * Time: 4:07:04 PM
  */
@@ -128,7 +129,8 @@ public class RSSUtil {
         SyndFeed feed = null;
         try {
             final SyndFeedInput input = new SyndFeedInput();
-                     for loading RSS feeds. * User: ktlili
+ /** for loading RSS feeds. 
+ * User: ktlili
  * Date: Jan 5, 2010
  * Time: 4:07:04 PM
  */
