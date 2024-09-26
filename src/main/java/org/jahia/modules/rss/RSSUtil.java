@@ -43,14 +43,14 @@
  */
 package org.jahia.modules.rss;
 
-import com.sun.syndication.feed.synd.*;
-import com.sun.syndication.fetcher.FeedFetcher;
-import com.sun.syndication.fetcher.impl.FeedFetcherCache;
-import com.sun.syndication.fetcher.impl.HashMapFeedInfoCache;
-import com.sun.syndication.fetcher.impl.HttpURLFeedFetcher;
-import com.sun.syndication.io.FeedException;
-import com.sun.syndication.io.SyndFeedInput;
-import com.sun.syndication.io.XmlReader;
+import com.rometools.rome.feed.synd.*;
+import com.rometools.fetcher.FeedFetcher;
+import com.rometools.fetcher.impl.FeedFetcherCache;
+import com.rometools.fetcher.impl.HashMapFeedInfoCache;
+import com.rometools.fetcher.impl.HttpURLFeedFetcher;
+import com.rometools.rome.io.FeedException;
+import com.rometools.rome.io.SyndFeedInput;
+import com.rometools.rome.io.XmlReader;
 import org.slf4j.Logger;
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -65,13 +65,13 @@ import java.net.URL;
  */
 public class RSSUtil {
     private static final transient Logger logger = org.slf4j.LoggerFactory.getLogger(RSSUtil.class);
-    
+
     private SyndFeed feed;
-    
+
     private boolean loaded;
     private String url;
     private static int timeoutInMs = 4000; // default value -> to be loaded from Jahia properties? (global timeout config)
-    
+
     /**
      * Get a SyndFeed from an url
      * @param url
@@ -102,16 +102,16 @@ public class RSSUtil {
         return feed;
     }
 
-    /** * Get a SyndFeed from an url 
-    * @param url, custom timeout value (global) 
-    * @return 
+    /** * Get a SyndFeed from an url
+    * @param url, custom timeout value (global)
+    * @return
     */
     public static SyndFeed loadSyndFeed(String url, int timeoutInMs){
         setTimeoutInMs(timeoutInMs);
         return loadSyndFeed(url);
     }
-    
-    
+
+
 //    /**
 //     * Reformat codes coming from google news
 //     *
@@ -130,34 +130,34 @@ public class RSSUtil {
 //            }
 //        }
 //    }
-//    
+//
     /**
      * Sets the feed URL to load and parse.
-     * 
+     *
      * @param url the URl of the feed to load
      */
     public void setUrl(String url) {
         this.url = url;
     }
 
-    /** 
+    /**
     * Returns feed maximum timeout (to load).
     * @return the timeout value in milliseconds
     */
     public static int getTimeoutInMs() {
         return timeoutInMs;
     }
-    /** 
-    * Sets the feed maximum timeout (to load). 
-    * 
-    * @param timeoutInMs the timeout value in milliseconds 
+    /**
+    * Sets the feed maximum timeout (to load).
+    *
+    * @param timeoutInMs the timeout value in milliseconds
     */
     public static void setTimeoutInMs(int timeoutInMs) {
         RSSUtil.timeoutInMs = timeoutInMs;
     }
-    
+
     /**
-     * Returns the parsed feed object. 
+     * Returns the parsed feed object.
      * @return the parsed feed object
      */
     public SyndFeed getFeed() {
@@ -165,7 +165,7 @@ public class RSSUtil {
             loaded = true;
             feed = loadSyndFeed(url);
         }
-        
+
         return feed;
     }
 }
